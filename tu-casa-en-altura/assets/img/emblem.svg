@@ -1,0 +1,62 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Empire Enterprises">
+  <defs>
+    <linearGradient id="eg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E7C578"/>
+      <stop offset="0.5" stop-color="#C9A24B"/>
+      <stop offset="1" stop-color="#9C7A2E"/>
+    </linearGradient>
+    <linearGradient id="eg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F2DA9E"/>
+      <stop offset="1" stop-color="#B0882C"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#eg)" stroke-width="1.4">
+    <circle cx="100" cy="100" r="94"/>
+    <circle cx="100" cy="100" r="88"/>
+  </g>
+  <!-- laurels -->
+  <g fill="url(#eg)" opacity="0.85">
+    <path d="M34 122 q8 24 30 37 q-14 -3 -23 -14 q6 5 12 8 q-12 -6 -19 -17 q6 3 10 4 q-9 -6 -12 -18z"/>
+    <path d="M166 122 q-8 24 -30 37 q14 -3 23 -14 q-6 5 -12 8 q12 -6 19 -17 q-6 3 -10 4 q9 -6 12 -18z"/>
+  </g>
+  <!-- eagle -->
+  <g fill="url(#eg2)">
+    <!-- LEFT wing: layered swept feathers -->
+    <path d="M99 74
+      C 80 66 62 60 42 56 C 58 62 70 68 80 76
+      C 62 70 48 68 34 68 C 52 74 66 78 82 84
+      C 66 80 54 82 42 86 C 60 88 74 88 88 92
+      C 78 92 70 96 62 102 C 76 98 88 98 97 100
+      C 98 91 98 82 99 74 Z"/>
+    <!-- RIGHT wing mirror -->
+    <path d="M101 74
+      C 120 66 138 60 158 56 C 142 62 130 68 120 76
+      C 138 70 152 68 166 68 C 148 74 134 78 118 84
+      C 134 80 146 82 158 86 C 140 88 126 88 112 92
+      C 122 92 130 96 138 102 C 124 98 112 98 103 100
+      C 102 91 102 82 101 74 Z"/>
+    <!-- head -->
+    <path d="M100 56 C 96 56 93 59 93 64 C 93 68 96 71 100 72 C 104 71 107 68 107 64 C 107 59 104 56 100 56 Z"/>
+    <!-- beak -->
+    <path d="M93 62 L 85 61 L 92 66 Z"/>
+    <!-- body / tail -->
+    <path d="M100 70 C 95 80 93 96 96 116 C 98 126 100 132 100 140 C 100 132 102 126 104 116 C 107 96 105 80 100 70 Z"/>
+    <!-- talons -->
+    <path d="M93 118 l-4 11 M100 122 l0 13 M107 118 l4 11" stroke="url(#eg2)" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- eye -->
+  <circle cx="97" cy="63" r="1.1" fill="#1a1712"/>
+  <!-- building base -->
+  <g fill="url(#eg)">
+    <rect x="86" y="132" width="10" height="32"/>
+    <rect x="97" y="123" width="12" height="41"/>
+    <rect x="110" y="136" width="9" height="28"/>
+  </g>
+  <g fill="#12100c" opacity="0.5">
+    <rect x="88.5" y="136" width="2" height="3"/><rect x="92" y="136" width="2" height="3"/>
+    <rect x="88.5" y="143" width="2" height="3"/><rect x="92" y="143" width="2" height="3"/>
+    <rect x="100" y="129" width="2" height="3"/><rect x="104" y="129" width="2" height="3"/>
+    <rect x="100" y="137" width="2" height="3"/><rect x="104" y="137" width="2" height="3"/>
+    <rect x="112.5" y="142" width="2" height="3"/><rect x="112.5" y="149" width="2" height="3"/>
+  </g>
+</svg>
