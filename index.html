@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SABAI · Cocina tailandesa en Madrid</title>
+  <meta name="description" content="Sabai — cocina tailandesa de las cuatro regiones en el Barrio de Salamanca, Madrid. Wok, curries y street food de Bangkok con producto de temporada. Reserva tu mesa." />
+  <meta name="theme-color" content="#100B08" />
+
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:title" content="SABAI · Cocina tailandesa en Madrid" />
+  <meta property="og:description" content="Cocina tailandesa honesta en el Barrio de Salamanca. Wok, curries y street food de Bangkok." />
+  <meta property="og:locale" content="es_ES" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23100B08'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='%23C9A15B' font-family='Georgia,serif'%3ES%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+Thai:wght@400;500;600&display=swap" />
+
+  <link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high" />
+  <link rel="stylesheet" href="styles.css?v=20260717" />
+</head>
+<body>
+  <a class="skip-link" href="#carta">Saltar a la carta</a>
+
+  <!-- ===== SVG dish medallions (defined once) ===== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="sym-noodles" viewBox="0 0 100 100">
+        <circle class="ring" cx="50" cy="50" r="46" /><circle class="ring-2" cx="50" cy="50" r="40" />
+        <path d="M26 55 H74" /><path d="M28 55 Q50 77 72 55" />
+        <path d="M32 54 q5 -11 10 -2 q5 9 10 -2 q5 -10 10 -1" class="soft" />
+        <path d="M34 49 q5 -9 10 -1 q5 8 10 -2 q5 -9 10 -1" class="soft" />
+        <path d="M58 22 L80 46" /><path d="M64 20 L86 42" />
+      </symbol>
+
+      <symbol id="sym-curry" viewBox="0 0 100 100">
+        <circle class="ring" cx="50" cy="50" r="46" /><circle class="ring-2" cx="50" cy="50" r="40" />
+        <path d="M26 56 H74" /><path d="M28 56 Q50 78 72 56" />
+        <path d="M40 30 q-4 6 0 11 q4 6 0 11" class="soft" />
+        <path d="M58 28 q4 6 0 11 q-4 6 0 11" class="soft" />
+        <path d="M44 50 c-7 -6 4 -16 11 -9 c4 5 -3 13 -11 9 Z" /><path d="M47 47 L54 53" class="soft" />
+      </symbol>
+
+      <symbol id="sym-soup" viewBox="0 0 100 100">
+        <circle class="ring" cx="50" cy="50" r="46" /><circle class="ring-2" cx="50" cy="50" r="40" />
+        <path d="M24 56 H76" /><path d="M26 56 Q50 80 74 56" />
+        <path d="M40 30 L49 53" /><path d="M58 30 L51 53" />
+        <path d="M44 26 q-3 5 0 9" class="soft" />
+        <path d="M58 49 q7 -3 7 4 q0 6 -7 4" />
+      </symbol>
+
+      <symbol id="sym-mortar" viewBox="0 0 100 100">
+        <circle class="ring" cx="50" cy="50" r="46" /><circle class="ring-2" cx="50" cy="50" r="40" />
+        <path d="M30 52 Q50 74 70 52" /><ellipse cx="50" cy="52" rx="20" ry="5" />
+        <path d="M58 28 L45 51" /><circle cx="59" cy="27" r="3.4" class="solid" />
+        <path d="M40 53 q4 4 8 0 q4 4 8 0" class="soft" />
+      </symbol>
+
+      <symbol id="sym-skewer" viewBox="0 0 100 100">
+        <circle class="ring" cx="50" cy="50" r="46" /><circle class="ring-2" cx="50" cy="50" r="40" />
+        <path d="M24 72 L78 28" class="soft" />
+        <path d="M40 58 l8 -6 l8 6 l-8 6 Z" /><path d="M52 46 l8 -6 l8 6 l-8 6 Z" /><path d="M64 34 l8 -6 l8 6 l-8 6 Z" transform="translate(-6 2)" />
+        <path d="M30 60 L26 66" /><path d="M30 60 L36 64" />
+      </symbol>
+
+      <symbol id="sym-rolls" viewBox="0 0 100 100">
+        <circle class="ring" cx="50" cy="50" r="46" /><circle class="ring-2" cx="50" cy="50" r="40" />
+        <path d="M28 42 l17 17 a6 6 0 0 0 8.5 -8.5 l-17 -17 a6 6 0 0 0 -8.5 8.5 Z" />
+        <path d="M42 30 l17 17 a6 6 0 0 0 8.5 -8.5 l-17 -17 a6 6 0 0 0 -8.5 8.5 Z" class="soft" />
+        <circle cx="32" cy="38" r="2.4" class="solid" /><circle cx="46" cy="26" r="2.4" class="solid" />
+        <path d="M44 68 q10 8 20 0" /><path d="M46 68 h16" class="soft" />
+      </symbol>
+
+      <symbol id="sym-star" viewBox="0 0 100 100">
+        <circle class="ring" cx="50" cy="50" r="46" /><circle class="ring-2" cx="50" cy="50" r="40" />
+        <g>
+          <path d="M50 50 Q46 32 50 24 Q54 32 50 50 Z" />
+          <path d="M50 50 Q46 32 50 24 Q54 32 50 50 Z" transform="rotate(45 50 50)" />
+          <path d="M50 50 Q46 32 50 24 Q54 32 50 50 Z" transform="rotate(90 50 50)" />
+          <path d="M50 50 Q46 32 50 24 Q54 32 50 50 Z" transform="rotate(135 50 50)" />
+          <path d="M50 50 Q46 32 50 24 Q54 32 50 50 Z" transform="rotate(180 50 50)" />
+          <path d="M50 50 Q46 32 50 24 Q54 32 50 50 Z" transform="rotate(225 50 50)" />
+          <path d="M50 50 Q46 32 50 24 Q54 32 50 50 Z" transform="rotate(270 50 50)" />
+          <path d="M50 50 Q46 32 50 24 Q54 32 50 50 Z" transform="rotate(315 50 50)" />
+        </g>
+        <circle cx="50" cy="50" r="4" class="solid" />
+      </symbol>
+
+      <symbol id="sym-mango" viewBox="0 0 100 100">
+        <circle class="ring" cx="50" cy="50" r="46" /><circle class="ring-2" cx="50" cy="50" r="40" />
+        <path d="M24 60 H76" /><path d="M27 60 Q50 72 73 60" />
+        <path d="M34 46 q10 -11 19 -1 q-9 7 -19 1 Z" /><path d="M38 45 q6 -3 11 1" class="soft" />
+        <path d="M56 54 q8 -13 16 0 Z" /><circle cx="61" cy="50" r="1.3" class="solid" /><circle cx="66" cy="52" r="1.3" class="solid" /><circle cx="63" cy="46" r="1.3" class="solid" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ===== Splash ===== -->
+  <div class="splash" data-splash aria-hidden="true">
+    <div class="splash-inner">
+      <span class="splash-thai">สบาย</span>
+      <span class="splash-word">Sabai</span>
+      <span class="splash-line"></span>
+    </div>
+  </div>
+
+  <!-- ===== Cursor ===== -->
+  <div class="cursor" data-cursor-root aria-hidden="true">
+    <span class="cursor-dot"></span>
+    <span class="cursor-ring"></span>
+  </div>
+
+  <!-- ===== Scroll progress ===== -->
+  <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+  <!-- ===== Mobile nav ===== -->
+  <div class="nav-mobile" data-nav-mobile aria-hidden="true">
+    <button class="nav-close" data-nav-close aria-label="Cerrar menú">×</button>
+    <ul>
+      <li><a href="#carta" data-nav-go>La <em>carta</em></a></li>
+      <li><a href="#casa" data-nav-go>La <em>casa</em></a></li>
+      <li><a href="#reserva" data-nav-go><em>Reservar</em></a></li>
+      <li><a href="#contacto" data-nav-go>Contacto</a></li>
+    </ul>
+  </div>
+
+  <!-- ===== Nav ===== -->
+  <header class="nav" data-nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Sabai, inicio">
+        <span class="brand-mark">Sabai</span>
+        <span class="brand-thai">สบาย</span>
+      </a>
+      <nav class="nav-links" aria-label="Principal">
+        <a class="nav-link" href="#carta">La carta</a>
+        <a class="nav-link" href="#casa">La casa</a>
+        <a class="nav-link" href="#contacto">Contacto</a>
+      </nav>
+      <a class="btn nav-cta" href="#reserva" data-magnetic data-magnetic-strength="0.35">Reservar mesa</a>
+      <button class="nav-burger" data-nav-open aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="hero-bg"><img src="assets/img/hero.webp" alt="Ambiente cálido a media luz del comedor de Sabai" fetchpriority="high" loading="eager" decoding="sync" /></div>
+      <div class="hero-mesh" aria-hidden="true"></div>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <p class="hero-meta"><span class="dot"></span> Barrio de Salamanca · Madrid · Abierto hoy</p>
+        <span class="hero-glyph">สบาย</span>
+        <h1 class="hero-title">Bangkok, servido <em>despacio</em> en Madrid.</h1>
+        <p class="hero-sub">Cocina tailandesa de las cuatro regiones: el wok que ruge, el curry que reposa y el picante que abraza. Producto de temporada, hierbas frescas cada semana.</p>
+        <div class="hero-foot">
+          <div class="hero-actions">
+            <a class="btn" href="#reserva" data-magnetic data-magnetic-strength="0.4">Reservar mesa <span class="btn-arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#carta" data-magnetic data-magnetic-strength="0.3">Ver la carta</a>
+          </div>
+          <p class="hero-rating"><strong data-count-to="4.8">4.8</strong> ★ · <span data-count-to="620">620</span> reseñas</p>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true"><span class="line"></span>Desliza</div>
+    </section>
+
+    <!-- ===== Marquee ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" data-marquee></div>
+    </div>
+
+    <!-- ===== Casa ===== -->
+    <section class="section casa" id="casa">
+      <div class="casa-bg" aria-hidden="true"><img src="assets/img/texture-ember.webp" alt="" loading="lazy" decoding="async" /></div>
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker">La casa</p>
+        </div>
+        <p class="casa-lead" data-reveal>No traducimos Tailandia: la <em>cocinamos entera</em>, del norte de Chiang Mai al sur de Phuket, con la misma honestidad de un puesto de calle.</p>
+        <div class="casa-grid">
+          <article class="pillar" data-reveal data-delay="1">
+            <span class="num">01</span>
+            <h3>El wok manda</h3>
+            <p>Fuego vivo, hierro caliente y segundos que cuentan. El «wok hei» —el aliento del wok— es la firma de cada salteado que sale de la cocina.</p>
+          </article>
+          <article class="pillar" data-reveal data-delay="2">
+            <span class="num">02</span>
+            <h3>Cuatro sabores</h3>
+            <p>Ácido, dulce, salado y picante en equilibrio. Majamos las pastas de curry al mortero, cada mañana, como se ha hecho siempre.</p>
+          </article>
+          <article class="pillar" data-reveal data-delay="3">
+            <span class="num">03</span>
+            <h3>Producto vivo</h3>
+            <p>Lemongrass, galanga, lima kaffir y albahaca sagrada llegan frescos cada semana. Lo que no es de temporada, no entra en la carta.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Carta ===== -->
+    <section class="section carta" id="carta">
+      <div class="container">
+        <div class="carta-head">
+          <div class="section-head" style="margin-bottom:0" data-reveal>
+            <p class="kicker">La carta · เมนู</p>
+            <h2>Platos para <em>compartir</em> en el centro de la mesa.</h2>
+          </div>
+          <a class="btn btn-ghost" href="#reserva" data-magnetic data-magnetic-strength="0.3" data-reveal data-delay="1">Reservar para probarlos</a>
+        </div>
+        <div class="menu-grid" data-menu></div>
+        <p class="carta-note" data-reveal>Carta de muestra · <em>menú degustación</em> disponible para mesas de 4 o más. Avísanos de cualquier alergia y adaptamos el plato.</p>
+      </div>
+    </section>
+
+    <!-- ===== Quote ===== -->
+    <section class="section quote">
+      <div class="container">
+        <div data-reveal>
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <blockquote>Un plato tailandés bien hecho no grita: <em>susurra las cuatro estaciones</em> a la vez.</blockquote>
+          <cite>Pim Aroon · Jefa de cocina</cite>
+        </div>
+        <div class="quote-list" data-testimonials></div>
+      </div>
+    </section>
+
+    <!-- ===== Stats ===== -->
+    <section class="section stats">
+      <div class="container">
+        <div class="stats-grid" data-stats></div>
+      </div>
+    </section>
+
+    <!-- ===== Reserva ===== -->
+    <section class="section reserva" id="reserva">
+      <div class="reserva-bg" aria-hidden="true"><img src="assets/img/texture-cta.webp" alt="" loading="lazy" decoding="async" /></div>
+      <div class="container">
+        <div class="reserva-grid">
+          <div data-reveal>
+            <p class="kicker">Reserva</p>
+            <h2>Guardamos tu <em>mesa</em>.</h2>
+            <p>Reservamos con confirmación en el momento. Para grupos de más de 8 personas o eventos privados, escríbenos directamente y lo preparamos a medida.</p>
+            <div class="reserva-contact">
+              <span>Teléfono · <a href="tel:+34910248851">+34 910 24 88 51</a></span>
+              <span>Email · <a href="mailto:hola@sabaimadrid.es">hola@sabaimadrid.es</a></span>
+              <span>Calle de Jorge Juan 18 · 28001 Madrid</span>
+            </div>
+          </div>
+          <div class="form-wrap" data-reveal data-delay="1">
+            <form class="cta-form" data-contact-form novalidate>
+              <div class="form-row two">
+                <div class="field">
+                  <input type="text" id="r-name" name="name" required placeholder=" " autocomplete="name" />
+                  <label for="r-name">Nombre</label>
+                </div>
+                <div class="field">
+                  <input type="tel" id="r-phone" name="phone" required placeholder=" " autocomplete="tel" />
+                  <label for="r-phone">Teléfono</label>
+                </div>
+              </div>
+              <div class="form-row two">
+                <div class="field">
+                  <input type="date" id="r-date" name="date" required placeholder=" " />
+                  <label for="r-date">Fecha</label>
+                </div>
+                <div class="field is-select">
+                  <select id="r-people" name="people" required aria-label="Comensales">
+                    <option value="2">2 comensales</option>
+                    <option value="3">3 comensales</option>
+                    <option value="4">4 comensales</option>
+                    <option value="5">5 comensales</option>
+                    <option value="6">6 comensales</option>
+                    <option value="8">7 – 8 comensales</option>
+                  </select>
+                  <label for="r-people">Comensales</label>
+                </div>
+              </div>
+              <div class="field">
+                <input type="text" id="r-note" name="note" placeholder=" " />
+                <label for="r-note">Alergias o peticiones (opcional)</label>
+              </div>
+              <button type="submit" class="cta-submit">
+                <span class="cta-form-label">Confirmar reserva</span>
+                <span class="cta-form-spinner" aria-hidden="true"></span>
+                <span class="cta-form-check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6" pathLength="1" /></svg></span>
+              </button>
+              <p class="form-note">Recibirás confirmación por SMS. Sin coste de reserva.</p>
+            </form>
+            <div class="cta-success" data-contact-success aria-hidden="true">
+              <span class="tick" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#100B08" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6" /></svg></span>
+              <h3>Mesa guardada</h3>
+              <p data-contact-success-msg></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contacto ===== -->
+    <section class="section contacto" id="contacto">
+      <div class="contacto-bg" aria-hidden="true"><img src="assets/img/texture-smoke.webp" alt="" loading="lazy" decoding="async" /></div>
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="kicker">Visítanos</p>
+          <h2>En el corazón del <em>Barrio de Salamanca</em>.</h2>
+        </div>
+        <div class="contacto-grid">
+          <div data-reveal>
+            <div class="info-block">
+              <h3>Horario</h3>
+              <div data-hours></div>
+            </div>
+            <div class="info-block">
+              <h3>Dirección</h3>
+              <p>Calle de Jorge Juan 18<br />28001 Madrid</p>
+              <p style="color:var(--cream-3);margin-top:.4rem;font-size:.9rem">Metro Serrano · L4 — a 3 minutos andando</p>
+            </div>
+            <div class="info-block">
+              <h3>Reservas</h3>
+              <p><a href="tel:+34910248851">+34 910 24 88 51</a> · <a href="mailto:hola@sabaimadrid.es">hola@sabaimadrid.es</a></p>
+            </div>
+          </div>
+          <div class="map-card" data-reveal data-delay="1" aria-label="Ubicación aproximada en el Barrio de Salamanca">
+            <svg viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="400" height="340" fill="#1a130d" />
+              <g stroke="#3a2c1e" stroke-width="1.5" fill="none">
+                <path d="M0 70 H400 M0 150 H400 M0 230 H400 M0 300 H400" />
+                <path d="M70 0 V340 M150 0 V340 M240 0 V340 M320 0 V340" />
+              </g>
+              <g stroke="#C9A15B" stroke-width="2" fill="none" opacity="0.55">
+                <path d="M0 150 H400" /><path d="M240 0 V340" />
+              </g>
+            </svg>
+            <div class="map-pin">
+              <span class="marker" aria-hidden="true"></span>
+              <strong>Sabai</strong>
+              <span>Jorge Juan 18 · Madrid</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="brand"><span class="brand-mark">Sabai</span> <span class="brand-thai">สบาย</span></span>
+          <p>Cocina tailandesa de las cuatro regiones en el Barrio de Salamanca. Bienestar es sabai: comer bien, sin prisa.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navega</h4>
+          <ul>
+            <li><a href="#carta">La carta</a></li>
+            <li><a href="#casa">La casa</a></li>
+            <li><a href="#reserva">Reservar</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="tel:+34910248851">+34 910 24 88 51</a></li>
+            <li><a href="mailto:hola@sabaimadrid.es">hola@sabaimadrid.es</a></li>
+            <li>Calle de Jorge Juan 18</li>
+            <li>28001 Madrid</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> Sabai Madrid · Todos los derechos reservados.</p>
+        <p class="footer-credits">Ilustraciones y ambientes creados a medida para Sabai — <em>obra original, libre de derechos de terceros</em>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Scripts (classic defer, IIFE) ===== -->
+  <script defer src="lib/gsap.min.js"></script>
+  <script defer src="lib/ScrollTrigger.min.js"></script>
+  <script defer src="lib/manifest.js?v=20260717"></script>
+  <script defer src="main.js?v=20260717"></script>
+</body>
+</html>
