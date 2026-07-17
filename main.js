@@ -8,6 +8,8 @@
   const escHTML = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   function safe(fn, name) { try { fn(); } catch (e) { console.warn("[" + name + "]", e); } }
+  // Resolves an asset path; in the single-file build, window.__IMG__ maps paths to inlined data URIs.
+  const IMG = (p) => (window.__IMG__ && window.__IMG__[p]) || p;
 
   /* ---------- Mounts (idempotent) ---------- */
 
@@ -16,14 +18,19 @@
     if (!t || t.children.length > 0 || !data.dishes) return;
     t.innerHTML = data.dishes.map((d, i) => `
       <article class="dish" data-tilt data-reveal data-delay="${(i % 4) + 1}">
-        <span class="dish-medallion" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#${escHTML(d.glyph)}"></use></svg></span>
-        <span class="dish-cat">${escHTML(d.cat)}</span>
-        <span class="dish-th">${escHTML(d.th)}</span>
-        <h3 class="dish-name">${escHTML(d.name)}</h3>
-        <p class="dish-desc">${escHTML(d.desc)}</p>
-        <div class="dish-foot">
-          <span class="dish-price">${escHTML(d.price)}</span>
-          <span class="dish-dot" aria-hidden="true"></span>
+        <div class="dish-photo">
+          <img src="${escHTML(IMG("assets/img/dish-" + d.id + ".webp"))}" alt="${escHTML(d.name)} — plato tailandés servido en Sabai" loading="lazy" decoding="async" />
+          <span class="dish-medallion" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#${escHTML(d.glyph)}"></use></svg></span>
+          <span class="dish-cat">${escHTML(d.cat)}</span>
+        </div>
+        <div class="dish-body">
+          <span class="dish-th">${escHTML(d.th)}</span>
+          <h3 class="dish-name">${escHTML(d.name)}</h3>
+          <p class="dish-desc">${escHTML(d.desc)}</p>
+          <div class="dish-foot">
+            <span class="dish-price">${escHTML(d.price)}</span>
+            <span class="dish-dot" aria-hidden="true"></span>
+          </div>
         </div>
       </article>`).join("");
   }
