@@ -1,7 +1,9 @@
-# Nicolás con K Electricidad — Sitio web
+# Nikolav Electricidad — Sitio web
 
 Sitio web estático (HTML + CSS + JavaScript). **No necesita instalar nada**: es
 una carpeta que se sube tal cual a Hostinger, Netlify, Vercel o cualquier hosting.
+
+Diseño en blanco y amarillo eléctrico, con tus fotos reales de obras ya integradas.
 
 ## 📱 Cambiar tu teléfono, WhatsApp, correo e Instagram
 
@@ -14,15 +16,12 @@ phoneRaw: "5493510000000"   ← código país (54) + 9 + área + número, SOLO n
 phoneDisplay: "+54 351 000-0000"   ← cómo se ve en pantalla
 ```
 
-## 🖼️ Poner tus fotos reales de obras
+## 🖼️ Tus fotos
 
-La sección **“Trabajos”** hoy usa piezas gráficas hechas a medida. Para reemplazarlas
-por fotos tuyas:
-
-1. Dejá tus fotos (JPG o PNG) en la carpeta `assets/photos/source/`.
-2. Avisá y las integramos con el tamaño y recorte correctos.
-
-Ideal: 4 a 6 fotos de tableros, iluminación, cableado y mediciones.
+Ya integramos tus 7 fotos reales (tablero del hero, guante/EPP y la galería de
+“Trabajos”). Los originales quedan en `assets/photos/source/` y las versiones
+optimizadas (WebP) en `assets/img/`. Si querés cambiar alguna, mandá la nueva
+foto y la reemplazamos con el mismo recorte.
 
 ## 🚀 Publicar el sitio
 

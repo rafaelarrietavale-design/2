@@ -3,33 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nicolás con K Electricidad · Electricista matriculado en Córdoba</title>
+  <title>Nikolav Electricidad · Electricista matriculado en Córdoba</title>
   <meta name="description" content="Instalaciones eléctricas, tableros, urgencias 24 h e iluminación LED en Córdoba, Argentina. Electricista matriculado. Presupuesto sin cargo y garantía escrita.">
-  <meta name="theme-color" content="#0E0B09">
-  <meta name="author" content="Nicolás con K Electricidad">
+  <meta name="theme-color" content="#FFD400">
+  <meta name="author" content="Nikolav Electricidad">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Nicolás con K Electricidad · Electricista matriculado en Córdoba">
+  <meta property="og:title" content="Nikolav Electricidad · Electricista matriculado en Córdoba">
   <meta property="og:description" content="Instalaciones, tableros, urgencias 24 h e iluminación LED en Córdoba. Presupuesto sin cargo y garantía escrita.">
   <meta property="og:locale" content="es_AR">
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/favicon.svg">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
 
-  <link rel="stylesheet" href="styles.css?v=20260721">
+  <link rel="preload" as="image" href="assets/img/hero-tablero.webp" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=20260721b">
 
-  <!-- SEO: LocalBusiness structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Electrician",
-    "name": "Nicolás con K Electricidad",
+    "name": "Nikolav Electricidad",
     "description": "Electricista matriculado en Córdoba, Argentina. Instalaciones eléctricas, tableros, urgencias 24 h e iluminación LED.",
     "areaServed": "Córdoba, Argentina",
     "address": { "@type": "PostalAddress", "addressLocality": "Córdoba", "addressCountry": "AR" },
@@ -44,10 +42,8 @@
 
   <!-- ============ SPLASH ============ -->
   <div class="splash" id="splash" aria-hidden="true">
-    <div class="splash-inner">
-      <span class="splash-mark">N<span class="splash-k">K</span></span>
-      <span class="splash-line"></span>
-    </div>
+    <span class="splash-mark"><span class="bolt">⚡</span>Nikolav</span>
+    <span class="splash-bar"></span>
   </div>
 
   <!-- ============ SVG ICON SPRITE ============ -->
@@ -69,25 +65,28 @@
       <symbol id="ic-check" viewBox="0 0 24 24"><path d="M4 12.5 9 17.5 20 6.5"/></symbol>
       <symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
       <symbol id="ic-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4.5"/></symbol>
+      <symbol id="ic-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     </defs>
   </svg>
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
     <div class="nav-inner container">
-      <a class="brand" href="#top" aria-label="Nicolás con K Electricidad — inicio">
-        <span class="brand-mark">N<span class="brand-k">K</span></span>
-        <span class="brand-text">Nicolás con K<span class="brand-sub">Electricidad · Córdoba</span></span>
+      <a class="brand" href="#top" aria-label="Nikolav Electricidad — inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="brand-bolt"><use href="#ic-bolt"></use></svg>
+        </span>
+        <span class="brand-text">Nikolav<span class="brand-sub">Electricidad · Córdoba</span></span>
       </a>
       <nav class="nav-links" aria-label="Navegación principal">
         <a href="#servicios">Servicios</a>
-        <a href="#nosotros">Por qué nosotros</a>
+        <a href="#nosotros">Nosotros</a>
         <a href="#proceso">Cómo trabajamos</a>
-        <a href="#zonas">Zonas</a>
+        <a href="#trabajos">Trabajos</a>
         <a href="#faq">Preguntas</a>
       </nav>
       <a class="btn btn-primary nav-cta" data-wa href="#contacto">
-        <svg class="ic"><use href="#ic-wa"></use></svg> Pedir presupuesto
+        <svg class="ic"><use href="#ic-wa"></use></svg> Presupuesto
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
@@ -95,9 +94,9 @@
     </div>
     <div class="mobile-menu" id="mobileMenu" hidden>
       <a href="#servicios">Servicios</a>
-      <a href="#nosotros">Por qué nosotros</a>
+      <a href="#nosotros">Nosotros</a>
       <a href="#proceso">Cómo trabajamos</a>
-      <a href="#zonas">Zonas</a>
+      <a href="#trabajos">Trabajos</a>
       <a href="#faq">Preguntas</a>
       <a class="btn btn-primary" data-wa href="#contacto"><svg class="ic"><use href="#ic-wa"></use></svg> Pedir presupuesto</a>
     </div>
@@ -106,70 +105,50 @@
   <main id="top">
     <!-- ============ HERO ============ -->
     <section class="hero" id="inicio">
-      <div class="hero-bg" aria-hidden="true">
-        <div class="hero-mesh"></div>
-        <div class="hero-grid"></div>
-        <div class="hero-circuit">
-          <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
-            <g class="circuit-lines" fill="none" stroke="currentColor" stroke-width="1.4">
-              <path d="M0 120 H180 V240 H360 V90 H600"/>
-              <path d="M0 300 H120 V420 H300 V300 H480 V510 H600"/>
-              <path d="M0 480 H90 V360 H240"/>
-              <path d="M420 0 V150 H540 V330"/>
-            </g>
-            <g class="circuit-nodes" fill="currentColor">
-              <circle cx="180" cy="240" r="4"/><circle cx="360" cy="90" r="4"/>
-              <circle cx="300" cy="420" r="4"/><circle cx="480" cy="510" r="4"/>
-              <circle cx="540" cy="150" r="4"/><circle cx="240" cy="360" r="4"/>
-            </g>
-          </svg>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="hero-eyebrow reveal"><span class="dot"></span> Electricista matriculado · Córdoba, Argentina</p>
+          <h1 class="hero-title reveal">
+            Electricidad<br>hecha <mark>como<br>corresponde</mark>.
+          </h1>
+          <p class="hero-sub reveal">
+            Instalaciones, tableros y urgencias resueltas con criterio, prolijidad y garantía
+            escrita. Trabajo de electricista de verdad, en tu casa o tu comercio.
+          </p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary btn-lg" data-wa href="#contacto">
+              <svg class="ic"><use href="#ic-wa"></use></svg> Pedir presupuesto sin cargo
+            </a>
+            <a class="btn btn-dark btn-lg" href="#servicios">Ver servicios <svg class="ic"><use href="#ic-arrow"></use></svg></a>
+          </div>
+          <ul class="hero-badges reveal">
+            <li><svg class="ic"><use href="#ic-bolt"></use></svg> Urgencias 24 h</li>
+            <li><svg class="ic"><use href="#ic-shield"></use></svg> Garantía escrita</li>
+            <li><svg class="ic"><use href="#ic-check"></use></svg> Materiales certificados</li>
+          </ul>
+        </div>
+
+        <div class="hero-media reveal">
+          <figure class="hero-photo">
+            <img src="assets/img/hero-tablero.webp" alt="Tablero eléctrico armado y cableado con orden por Nikolav en Córdoba" fetchpriority="high" loading="eager" width="1000" height="1500">
+          </figure>
+          <div class="hero-badge-float">
+            <span class="hbf-num" data-count="12" data-suffix="+">12+</span>
+            <span class="hbf-label">años sobre<br>la escalera</span>
+          </div>
         </div>
       </div>
-
-      <div class="hero-inner container">
-        <p class="hero-meta"><span class="dot"></span> Electricista matriculado · Córdoba, Argentina</p>
-        <h1 class="hero-title reveal">
-          Electricidad que<br><em>no te deja</em> a oscuras.
-        </h1>
-        <p class="hero-sub reveal">
-          Instalaciones, tableros y urgencias resueltas con criterio, prolijidad y garantía escrita.
-          Trabajo de electricista de verdad, en tu casa o tu comercio.
-        </p>
-        <div class="hero-actions reveal">
-          <a class="btn btn-primary btn-lg" data-wa href="#contacto">
-            <svg class="ic"><use href="#ic-wa"></use></svg> Pedir presupuesto sin cargo
-          </a>
-          <a class="btn btn-ghost btn-lg" href="#servicios">Ver servicios</a>
-        </div>
-        <ul class="hero-badges reveal">
-          <li><svg class="ic"><use href="#ic-bolt"></use></svg> Urgencias 24 h</li>
-          <li><svg class="ic"><use href="#ic-shield"></use></svg> Garantía escrita</li>
-          <li><svg class="ic"><use href="#ic-check"></use></svg> Materiales certificados</li>
-        </ul>
-      </div>
-
-      <div class="hero-scroll" aria-hidden="true"><span></span>Deslizá</div>
     </section>
 
-    <!-- ============ MARQUEE ============ -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Instalaciones domiciliarias</span><i>⚡</i>
-        <span>Tableros y protecciones</span><i>⚡</i>
-        <span>Urgencias 24 h</span><i>⚡</i>
-        <span>Iluminación LED</span><i>⚡</i>
-        <span>Puesta a tierra</span><i>⚡</i>
-        <span>Certificaciones</span><i>⚡</i>
-        <span>Mantenimiento</span><i>⚡</i>
-        <span>Automatización</span><i>⚡</i>
-        <span>Instalaciones domiciliarias</span><i>⚡</i>
-        <span>Tableros y protecciones</span><i>⚡</i>
-        <span>Urgencias 24 h</span><i>⚡</i>
-        <span>Iluminación LED</span><i>⚡</i>
-        <span>Puesta a tierra</span><i>⚡</i>
-        <span>Certificaciones</span><i>⚡</i>
-        <span>Mantenimiento</span><i>⚡</i>
-        <span>Automatización</span><i>⚡</i>
+    <!-- ============ HAZARD MARQUEE ============ -->
+    <div class="hazard" aria-hidden="true">
+      <div class="hazard-track">
+        <span>Instalaciones</span><b>/</b><span>Tableros</span><b>/</b><span>Urgencias 24 h</span><b>/</b>
+        <span>Iluminación LED</span><b>/</b><span>Puesta a tierra</span><b>/</b><span>Certificaciones</span><b>/</b>
+        <span>Mantenimiento</span><b>/</b><span>Automatización</span><b>/</b>
+        <span>Instalaciones</span><b>/</b><span>Tableros</span><b>/</b><span>Urgencias 24 h</span><b>/</b>
+        <span>Iluminación LED</span><b>/</b><span>Puesta a tierra</span><b>/</b><span>Certificaciones</span><b>/</b>
+        <span>Mantenimiento</span><b>/</b><span>Automatización</span><b>/</b>
       </div>
     </div>
 
@@ -183,96 +162,90 @@
         </header>
 
         <div class="service-grid">
-          <article class="service-card reveal" data-tilt>
+          <article class="service-card reveal">
             <span class="service-ico"><svg class="ic"><use href="#ic-plug"></use></svg></span>
             <h3>Instalaciones domiciliarias y comerciales</h3>
             <p>Obra nueva, ampliaciones y refacciones. Cableado prolijo, canalizado y documentado, listo para habilitar.</p>
           </article>
-          <article class="service-card reveal" data-tilt>
+          <article class="service-card reveal">
             <span class="service-ico"><svg class="ic"><use href="#ic-panel"></use></svg></span>
             <h3>Tableros y protecciones</h3>
             <p>Armado y normalización de tableros con térmicas, disyuntores diferenciales y descargadores. Seguridad ante todo.</p>
           </article>
-          <article class="service-card reveal" data-tilt>
+          <article class="service-card reveal">
             <span class="service-ico"><svg class="ic"><use href="#ic-bolt"></use></svg></span>
             <h3>Urgencias eléctricas 24 h</h3>
             <p>Cortes, cortocircuitos, olor a quemado o tableros que saltan. Respuesta rápida cuando más lo necesitás.</p>
           </article>
-          <article class="service-card reveal" data-tilt>
+          <article class="service-card reveal">
             <span class="service-ico"><svg class="ic"><use href="#ic-bulb"></use></svg></span>
             <h3>Iluminación y diseño lumínico</h3>
             <p>Recambio a LED, luminarias de diseño, dimerizado y luces de emergencia. Menos consumo, mejor ambiente.</p>
           </article>
-          <article class="service-card reveal" data-tilt>
+          <article class="service-card reveal">
             <span class="service-ico"><svg class="ic"><use href="#ic-ground"></use></svg></span>
             <h3>Puesta a tierra y mediciones</h3>
             <p>Jabalinas, medición de resistencia y corrección de fallas. Protegé personas y equipos electrónicos.</p>
           </article>
-          <article class="service-card reveal" data-tilt>
+          <article class="service-card reveal">
             <span class="service-ico"><svg class="ic"><use href="#ic-doc"></use></svg></span>
             <h3>Certificaciones e informes</h3>
             <p>Informe técnico y certificado de instalación firmado por matriculado, para seguros, alquileres y habilitaciones.</p>
           </article>
-          <article class="service-card reveal" data-tilt>
+          <article class="service-card reveal">
             <span class="service-ico"><svg class="ic"><use href="#ic-wrench"></use></svg></span>
             <h3>Mantenimiento para comercios y consorcios</h3>
             <p>Planes preventivos, termografía de tableros y guardias programadas. Evitá paradas y gastos imprevistos.</p>
           </article>
-          <article class="service-card reveal" data-tilt>
+          <article class="service-card reveal">
             <span class="service-ico"><svg class="ic"><use href="#ic-chip"></use></svg></span>
             <h3>Automatización y tableros de comando</h3>
             <p>Contactores, temporizadores, control de motores y domótica. Automatizamos lo que hoy hacés a mano.</p>
           </article>
+          <a class="service-cta reveal" data-wa href="#contacto">
+            <span>¿Necesitás algo puntual?</span>
+            <strong>Escribinos y lo vemos <svg class="ic"><use href="#ic-arrow"></use></svg></strong>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- ============ NOSOTROS / DIFERENCIALES ============ -->
+    <!-- ============ NOSOTROS ============ -->
     <section class="section about" id="nosotros">
       <div class="container about-grid">
+        <figure class="about-photo reveal">
+          <img src="assets/img/nosotros-electricista.webp" alt="Electricista de Nikolav con equipo de protección, listo para trabajar" loading="lazy" decoding="async" width="731" height="1300">
+          <figcaption><span class="af-badge">EPP<br>siempre</span></figcaption>
+        </figure>
         <div class="about-copy reveal">
-          <p class="kicker">Por qué elegirnos</p>
+          <p class="kicker">Quiénes somos</p>
           <h2>Un electricista que responde, explica y da la cara.</h2>
           <p class="about-lead">
-            Nicolás con K Electricidad es trabajo hecho por un matriculado que llega a horario, deja la obra
+            Nikolav Electricidad es trabajo hecho por un matriculado que llega a horario, deja la obra
             limpia y te explica lo que hizo. Nada de cables sueltos ni parches: instalaciones seguras,
             pensadas para durar y respaldadas por escrito.
           </p>
           <ul class="value-list">
-            <li class="reveal"><span class="v-ico"><svg class="ic"><use href="#ic-shield"></use></svg></span>
+            <li><span class="v-ico"><svg class="ic"><use href="#ic-shield"></use></svg></span>
               <p><strong>Matriculado.</strong> Trabajos firmados por electricista habilitado. Cumplimos la reglamentación AEA 90364.</p></li>
-            <li class="reveal"><span class="v-ico"><svg class="ic"><use href="#ic-check"></use></svg></span>
+            <li><span class="v-ico"><svg class="ic"><use href="#ic-check"></use></svg></span>
               <p><strong>Materiales certificados.</strong> Marcas con sello IRAM. Nada de improvisar con lo que salta a los seis meses.</p></li>
-            <li class="reveal"><span class="v-ico"><svg class="ic"><use href="#ic-doc"></use></svg></span>
+            <li><span class="v-ico"><svg class="ic"><use href="#ic-doc"></use></svg></span>
               <p><strong>Presupuesto sin cargo.</strong> Vamos, medimos y te pasamos un presupuesto claro y por escrito. Sin sorpresas.</p></li>
-            <li class="reveal"><span class="v-ico"><svg class="ic"><use href="#ic-clock"></use></svg></span>
+            <li><span class="v-ico"><svg class="ic"><use href="#ic-clock"></use></svg></span>
               <p><strong>Garantía escrita.</strong> Respaldamos cada instalación. Si algo falla dentro del plazo, lo resolvemos sin costo.</p></li>
           </ul>
         </div>
-
-        <aside class="about-visual reveal" aria-hidden="true">
-          <div class="panel-art">
-            <div class="panel-head"><span class="panel-led on"></span><span class="panel-led"></span><span class="panel-tag">TABLERO · NK</span></div>
-            <div class="panel-rows">
-              <div class="breaker"><span class="sw up"></span><b>Cocina</b><em>C16</em></div>
-              <div class="breaker"><span class="sw up"></span><b>Tomas generales</b><em>C20</em></div>
-              <div class="breaker"><span class="sw up"></span><b>Iluminación</b><em>C10</em></div>
-              <div class="breaker"><span class="sw up"></span><b>Termotanque</b><em>C25</em></div>
-              <div class="breaker"><span class="sw diff"></span><b>Disyuntor</b><em>30&nbsp;mA</em></div>
-              <div class="breaker"><span class="sw up"></span><b>Aire aconds.</b><em>C20</em></div>
-            </div>
-            <div class="panel-foot"><svg class="ic"><use href="#ic-ground"></use></svg> Puesta a tierra verificada</div>
-          </div>
-        </aside>
       </div>
+    </section>
 
-      <div class="container">
-        <div class="stats reveal">
-          <div class="stat"><span class="stat-num" data-count="12" data-suffix="+">0</span><span class="stat-label">años sobre la escalera</span></div>
-          <div class="stat"><span class="stat-num" data-count="800" data-suffix="+">0</span><span class="stat-label">obras terminadas</span></div>
-          <div class="stat"><span class="stat-num" data-count="24" data-suffix=" h">0</span><span class="stat-label">para urgencias</span></div>
-          <div class="stat"><span class="stat-num" data-count="100" data-suffix="%">0</span><span class="stat-label">trabajos garantizados</span></div>
-        </div>
+    <!-- ============ STATS (banda negra) ============ -->
+    <section class="stats-band">
+      <div class="container stats">
+        <div class="stat reveal"><span class="stat-num" data-count="12" data-suffix="+">0</span><span class="stat-label">años sobre la escalera</span></div>
+        <div class="stat reveal"><span class="stat-num" data-count="800" data-suffix="+">0</span><span class="stat-label">obras terminadas</span></div>
+        <div class="stat reveal"><span class="stat-num" data-count="24" data-suffix=" h">0</span><span class="stat-label">para urgencias</span></div>
+        <div class="stat reveal"><span class="stat-num" data-count="100" data-suffix="%">0</span><span class="stat-label">trabajos garantizados</span></div>
       </div>
     </section>
 
@@ -304,29 +277,38 @@
     <section class="section works" id="trabajos">
       <div class="container">
         <header class="section-head reveal">
-          <p class="kicker">Trabajos</p>
+          <p class="kicker">Trabajos reales</p>
           <h2>Obras que se ven prolijas por dentro.</h2>
           <p class="section-lead">Una muestra del tipo de trabajo que hacemos todos los días en Córdoba.</p>
         </header>
-        <div class="works-grid" data-gallery>
-          <figure class="work-tile art-panel reveal" data-tilt>
-            <span class="work-glow"></span>
-            <figcaption><b>Tableros normalizados</b><span>Protecciones y disyuntor en regla</span></figcaption>
+        <div class="works-grid">
+          <figure class="work-tile wide reveal">
+            <img src="assets/img/trabajo-tableros.webp" alt="Tablero con protecciones y contactores cableado por Nikolav" loading="lazy" decoding="async">
+            <figcaption><b>Tableros y protecciones</b><span>Térmicas, disyuntores y contactores en regla</span></figcaption>
           </figure>
-          <figure class="work-tile art-bulbs reveal" data-tilt>
-            <span class="work-glow"></span>
+          <figure class="work-tile reveal">
+            <img src="assets/img/trabajo-iluminacion.webp" alt="Instalación de iluminación decorativa con lámparas colgantes" loading="lazy" decoding="async">
             <figcaption><b>Iluminación LED</b><span>Diseño lumínico a medida</span></figcaption>
           </figure>
-          <figure class="work-tile art-cabinet reveal" data-tilt>
-            <span class="work-glow"></span>
-            <figcaption><b>Cableado estructurado</b><span>Comercios e industria liviana</span></figcaption>
-          </figure>
-          <figure class="work-tile art-meter reveal" data-tilt>
-            <span class="work-glow"></span>
+          <figure class="work-tile reveal">
+            <img src="assets/img/trabajo-mediciones.webp" alt="Medición y control de tablero con instrumental" loading="lazy" decoding="async">
             <figcaption><b>Mediciones y control</b><span>Diagnóstico con instrumental</span></figcaption>
           </figure>
+          <figure class="work-tile reveal">
+            <img src="assets/img/trabajo-instalacion.webp" alt="Electricista instalando luminaria en altura" loading="lazy" decoding="async">
+            <figcaption><b>Instalación en altura</b><span>Luminarias y tendidos</span></figcaption>
+          </figure>
+          <figure class="work-tile reveal">
+            <img src="assets/img/trabajo-industria.webp" alt="Trabajo sobre tablero industrial con cables de potencia" loading="lazy" decoding="async">
+            <figcaption><b>Industria liviana</b><span>Tableros de potencia y comando</span></figcaption>
+          </figure>
+          <a class="work-cta reveal" data-wa href="#contacto">
+            <span class="wc-bolt">⚡</span>
+            <b>¿Tu obra acá?</b>
+            <span>Pedí tu presupuesto sin cargo</span>
+            <span class="wc-go">Escribir <svg class="ic"><use href="#ic-arrow"></use></svg></span>
+          </a>
         </div>
-        <p class="works-note">📷 <em>¿Sos Nicolás? Reemplazá estas piezas por fotos reales de tus obras. Dejalas en <code>assets/photos/source/</code> y las integramos.</em></p>
       </div>
     </section>
 
@@ -365,15 +347,18 @@
         </header>
         <div class="quote-grid">
           <blockquote class="quote reveal">
-            <p>“Nos normalizó el tablero de la panadería y no volvimos a tener un corte. Puntual y muy prolijo.”</p>
+            <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+            <p>Nos normalizó el tablero de la panadería y no volvimos a tener un corte. Puntual y muy prolijo.</p>
             <footer><strong>Gabriela M.</strong><span>Comercio · Alta Córdoba</span></footer>
           </blockquote>
           <blockquote class="quote reveal">
-            <p>“Vino un domingo por una urgencia, resolvió el cortocircuito en el momento y nos dejó todo seguro.”</p>
+            <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+            <p>Vino un domingo por una urgencia, resolvió el cortocircuito en el momento y nos dejó todo seguro.</p>
             <footer><strong>Martín R.</strong><span>Vivienda · Nueva Córdoba</span></footer>
           </blockquote>
           <blockquote class="quote reveal">
-            <p>“Hicimos la instalación completa de la casa nueva. Presupuesto claro y cero sorpresas al final.”</p>
+            <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+            <p>Hicimos la instalación completa de la casa nueva. Presupuesto claro y cero sorpresas al final.</p>
             <footer><strong>Lucía y Diego</strong><span>Obra nueva · Villa Allende</span></footer>
           </blockquote>
         </div>
@@ -412,21 +397,20 @@
       </div>
     </section>
 
-    <!-- ============ CONTACTO / CTA ============ -->
+    <!-- ============ CONTACTO ============ -->
     <section class="section contact" id="contacto">
-      <div class="contact-mesh" aria-hidden="true"></div>
       <div class="container contact-inner">
         <div class="contact-copy reveal">
-          <p class="kicker">Contacto</p>
+          <p class="kicker kicker-dark">Contacto</p>
           <h2>Contá qué necesitás y te respondemos hoy.</h2>
           <p class="section-lead">Presupuesto sin cargo en Córdoba Capital y alrededores. Para urgencias, escribinos directo por WhatsApp.</p>
           <div class="contact-actions">
             <a class="btn btn-primary btn-lg" data-wa href="#"><svg class="ic"><use href="#ic-wa"></use></svg> Escribir por WhatsApp</a>
-            <a class="btn btn-ghost btn-lg" data-tel href="#"><svg class="ic"><use href="#ic-phone"></use></svg> <span data-phone>+54 351 000-0000</span></a>
+            <a class="btn btn-outline btn-lg" data-tel href="#"><svg class="ic"><use href="#ic-phone"></use></svg> <span data-phone>+54 351 000-0000</span></a>
           </div>
           <ul class="contact-list">
-            <li><svg class="ic"><use href="#ic-mail"></use></svg> <a data-mail href="#"><span data-email>contacto@nicolaskelectricidad.com.ar</span></a></li>
-            <li><svg class="ic"><use href="#ic-ig"></use></svg> <a data-ig href="#" target="_blank" rel="noopener"><span data-ighandle>@nicolask.electricidad</span></a></li>
+            <li><svg class="ic"><use href="#ic-mail"></use></svg> <a data-mail href="#"><span data-email>contacto@nikolav.com.ar</span></a></li>
+            <li><svg class="ic"><use href="#ic-ig"></use></svg> <a data-ig href="#" target="_blank" rel="noopener"><span data-ighandle>@nikolav.electricidad</span></a></li>
             <li><svg class="ic"><use href="#ic-clock"></use></svg> Lun a Sáb · 8 a 20 h &nbsp;·&nbsp; Urgencias 24 h</li>
             <li><svg class="ic"><use href="#ic-shield"></use></svg> Electricista matriculado · Córdoba, Argentina</li>
           </ul>
@@ -470,35 +454,33 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="brand-mark">N<span class="brand-k">K</span></span>
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" class="brand-bolt"><use href="#ic-bolt"></use></svg></span>
         <div>
-          <strong>Nicolás con K Electricidad</strong>
+          <strong>Nikolav Electricidad</strong>
           <p>Instalaciones eléctricas con la seguridad como norma. Córdoba, Argentina.</p>
         </div>
       </div>
       <nav class="footer-links" aria-label="Enlaces del pie">
         <a href="#servicios">Servicios</a>
-        <a href="#nosotros">Por qué nosotros</a>
+        <a href="#nosotros">Nosotros</a>
         <a href="#proceso">Cómo trabajamos</a>
-        <a href="#zonas">Zonas</a>
+        <a href="#trabajos">Trabajos</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
     <div class="container footer-bottom">
-      <p>© <span id="year">2026</span> Nicolás con K Electricidad · Electricista matriculado</p>
+      <p>© <span id="year">2026</span> Nikolav Electricidad · Electricista matriculado</p>
       <p class="footer-made">Hecho con criterio eléctrico ⚡</p>
     </div>
   </footer>
 
-  <!-- Botón flotante WhatsApp -->
   <a class="wa-float" data-wa href="#contacto" aria-label="Escribir por WhatsApp">
     <svg class="ic"><use href="#ic-wa"></use></svg>
   </a>
 
-  <!-- Scripts -->
   <script defer src="lib/gsap.min.js"></script>
   <script defer src="lib/ScrollTrigger.min.js"></script>
   <script defer src="lib/manifest.js"></script>
-  <script defer src="main.js?v=20260721"></script>
+  <script defer src="main.js?v=20260721b"></script>
 </body>
 </html>

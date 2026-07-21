@@ -9,7 +9,7 @@
   "use strict";
 
   window.__BRAND__ = {
-    name: "Nicolás con K Electricidad",
+    name: "Nikolav Electricidad",
 
     contact: {
       // Cómo se muestra el teléfono en pantalla:
@@ -19,14 +19,14 @@
       phoneRaw: "5493510000000",
 
       // Mensaje con el que se abre WhatsApp:
-      whatsappMsg: "Hola Nicolás, me gustaría pedir un presupuesto de electricidad.",
+      whatsappMsg: "Hola Nikolav, me gustaría pedir un presupuesto de electricidad.",
 
       // Correo:
-      email: "contacto@nicolaskelectricidad.com.ar",
+      email: "contacto@nikolav.com.ar",
 
       // Instagram (link y usuario visible):
       instagram: "https://instagram.com/",
-      instagramHandle: "@nicolask.electricidad"
+      instagramHandle: "@nikolav.electricidad"
     }
   };
 })();

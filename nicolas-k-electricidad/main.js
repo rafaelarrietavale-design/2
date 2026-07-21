@@ -115,21 +115,6 @@
     nums.forEach(n => io.observe(n));
   }
 
-  /* ---- Tilt 3D (solo desktop con puntero fino) ---- */
-  function initTilt() {
-    if (!fineHover || reduced) return;
-    $$("[data-tilt]").forEach(card => {
-      const max = 6;
-      card.addEventListener("mousemove", (e) => {
-        const r = card.getBoundingClientRect();
-        const px = (e.clientX - r.left) / r.width - 0.5;
-        const py = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform = `perspective(700px) rotateX(${(-py * max).toFixed(2)}deg) rotateY(${(px * max).toFixed(2)}deg) translateY(-5px)`;
-      });
-      card.addEventListener("mouseleave", () => { card.style.transform = ""; });
-    });
-  }
-
   /* ---- Marquee duplicate width fix handled by CSS (-50%) ---- */
 
   /* ---- Formulario → arma mensaje de WhatsApp ---- */
@@ -170,11 +155,11 @@
     if (y) y.textContent = new Date().getFullYear();
   }
 
-  /* ---- GSAP: parallax sutil del hero ---- */
+  /* ---- GSAP: parallax sutil de la foto del hero ---- */
   function initHeroParallax() {
     if (reduced || !window.gsap || !window.ScrollTrigger) return;
-    gsap.to(".hero-circuit", { yPercent: 18, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
-    gsap.to(".hero-mesh", { yPercent: 12, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+    if (!document.querySelector(".hero-photo img")) return;
+    gsap.to(".hero-photo img", { yPercent: 8, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
   }
 
   function boot() {
@@ -184,7 +169,6 @@
     safe(initAnchors, "initAnchors");
     safe(initReveals, "initReveals");
     safe(initCounters, "initCounters");
-    safe(initTilt, "initTilt");
     safe(initForm, "initForm");
     safe(initYear, "initYear");
 
