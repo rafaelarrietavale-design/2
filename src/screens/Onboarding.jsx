@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Choice from '../components/Choice.jsx'
+import Logo from '../components/Logo.jsx'
 import { saveProfile } from '../lib/dataClient.js'
 
 // ============================================================
@@ -53,7 +54,7 @@ export default function Onboarding() {
   return (
     <div className="shell shell--zona ob">
       <header className="ob-head">
-        <span className="zona-brand">PULSO</span>
+        <Logo />
         <div className="ob-progress" aria-hidden="true">
           {STEPS.map((_, i) => (
             <span key={i} className={`ob-dot${i <= step ? ' ob-dot--on' : ''}`} />

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import ZoneMeter, { ZONES } from '../components/ZoneMeter.jsx'
 import TabBar from '../components/TabBar.jsx'
+import Logo from '../components/Logo.jsx'
 import { getProfile, getWeek } from '../lib/dataClient.js'
 import { GOAL_LABEL, weekSeries, weekAvgReadiness, recommendedZone, readiness } from '../data/mock.js'
 
@@ -28,7 +29,7 @@ export default function HomeZona() {
   return (
     <div className="shell shell--zona">
       <header className="zona-head">
-        <span className="zona-brand">PULSO</span>
+        <Logo />
         <span className="zona-goal data">{GOAL_LABEL[profile.goal].toUpperCase()}</span>
       </header>
 
