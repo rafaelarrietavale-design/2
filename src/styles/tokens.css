@@ -1,0 +1,137 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   PULSO — Design tokens
+   Dos direcciones seleccionables vía  <html data-dir="...">
+   A) instrumento  — lectura fría, esfuerzo cálido (light-first)
+   B) zona         — adrenalina, zonas de FC (dark-first)
+   ============================================================ */
+
+:root {
+  /* Tipografía (compartida entre ambas direcciones) */
+  --font-display: 'Archivo Expanded', 'Archivo', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-data: 'JetBrains Mono', 'Space Mono', ui-monospace, monospace;
+
+  /* Escala de tipo */
+  --step--1: clamp(0.78rem, 0.74rem + 0.2vw, 0.86rem);
+  --step-0: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.5vw, 1.4rem);
+  --step-2: clamp(1.6rem, 1.4rem + 1vw, 2.1rem);
+  --step-3: clamp(2.4rem, 2rem + 2vw, 3.4rem);
+  --step-4: clamp(3.4rem, 2.6rem + 3.6vw, 5.4rem);
+
+  --radius: 18px;
+  --radius-sm: 12px;
+  --shell-max: 480px;
+}
+
+/* ---------- A) INSTRUMENTO (light) ---------- */
+:root[data-dir='instrumento'] {
+  --bg: #eceef0;
+  --bg-grain: #e3e6e9;
+  --surface: #ffffff;
+  --surface-2: #f6f7f9;
+  --ink: #10151b;
+  --ink-2: #333c46;
+  --muted: #5b6670;
+  --line: #dfe3e7;
+  --brand: #2e6be6; /* azul señal — la interpretación */
+  --brand-ink: #1b4fbf;
+  --effort: #ff7a18; /* ámbar — el cuerpo / esfuerzo */
+  --steady: #12b886; /* verde — constancia */
+  --data-font: 'JetBrains Mono', ui-monospace, monospace;
+  color-scheme: light;
+}
+
+/* ---------- B) ZONA / HEAT (dark) ---------- */
+:root[data-dir='zona'] {
+  --bg: #16181d;
+  --bg-grain: #1b1e24;
+  --surface: #202329;
+  --surface-2: #262a31;
+  --ink: #f2f3f5;
+  --ink-2: #c3c8d0;
+  --muted: #8a919b;
+  --line: #30343c;
+  --brand: #4d86ff;
+  --brand-ink: #7aa4ff;
+  --effort: #ff6a3d;
+  --steady: #16d19a;
+  /* Rampa de zonas de FC (fría -> caliente) */
+  --z1: #2e6be6;
+  --z2: #12b886;
+  --z3: #d9c515;
+  --z4: #ff7a18;
+  --z5: #ff3d3d;
+  --data-font: 'Space Mono', ui-monospace, monospace;
+  color-scheme: dark;
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  margin: 0;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+/* Etiquetas de "instrumento": mono, tracking amplio, mayúsculas */
+.eyebrow {
+  font-family: var(--data-font);
+  font-size: var(--step--1);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.data {
+  font-family: var(--data-font);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Foco de teclado visible (quality floor) */
+:where(a, button, [tabindex], input, select):focus-visible {
+  outline: 2.5px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Respetar reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

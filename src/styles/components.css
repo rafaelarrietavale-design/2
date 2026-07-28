@@ -1,0 +1,400 @@
+/* ============================================================
+   PULSO — estilos de layout y componentes
+   Consumen los tokens de tokens.css. Cada dirección tiene su
+   propio ritmo; comparten primitivas (stat-tile, tabbar).
+   ============================================================ */
+
+/* ---------- Shell (contenedor mobile-first) ---------- */
+.shell {
+  max-width: var(--shell-max);
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 22px 20px calc(96px + env(safe-area-inset-bottom));
+  position: relative;
+}
+
+/* ================= A) INSTRUMENTO ================= */
+.shell--inst {
+  background: var(--bg);
+  background-image: radial-gradient(circle at 1px 1px, var(--bg-grain) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+.inst-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.inst-hello {
+  font-size: var(--step-2);
+  font-weight: 700;
+  margin-top: 6px;
+}
+.inst-goal {
+  font-family: var(--data-font);
+  font-size: var(--step--1);
+  color: var(--brand-ink);
+  background: color-mix(in srgb, var(--brand) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand) 24%, transparent);
+  padding: 5px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.inst-signal {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 18px 14px;
+  box-shadow: 0 1px 0 rgba(16, 21, 27, 0.03), 0 12px 30px -18px rgba(16, 21, 27, 0.25);
+}
+.inst-signal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+.inst-read {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--step-1);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  margin-top: 8px;
+  max-width: 22ch;
+}
+.inst-read .hl {
+  color: var(--brand-ink);
+  box-shadow: inset 0 -0.42em 0 color-mix(in srgb, var(--brand) 14%, transparent);
+}
+.inst-avg {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1;
+}
+.inst-avg-num {
+  font-size: var(--step-3);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+.inst-axis {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  padding: 0 4px;
+}
+.inst-axis span {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.inst-axis .is-today {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* trazo — animación de dibujado */
+.signal-line {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: draw 1400ms cubic-bezier(0.22, 1, 0.36, 1) 180ms forwards;
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.inst-cta {
+  width: 100%;
+  margin: 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  text-align: left;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 10px 24px -12px rgba(16, 21, 27, 0.5);
+}
+.inst-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -12px rgba(16, 21, 27, 0.55);
+}
+.inst-cta-title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-1);
+  margin-top: 2px;
+}
+
+.inst-summary {
+  margin-top: 6px;
+}
+.inst-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+.shell--inst .stat-tile {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 14px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.shell--inst .stat-value {
+  font-size: var(--step-1);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+.shell--inst .stat-unit {
+  font-size: 0.6em;
+  color: var(--muted);
+}
+.shell--inst .stat-hint {
+  font-size: 12px;
+  color: var(--muted);
+}
+.shell--inst .stat-empty {
+  font-size: var(--step-1);
+  color: var(--muted);
+}
+
+/* ================= B) ZONA / HEAT ================= */
+.shell--zona {
+  background: var(--bg);
+  background-image: linear-gradient(180deg, #1a1d23 0%, var(--bg) 40%);
+}
+.zona-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.zona-brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--step-1);
+  letter-spacing: 0.14em;
+  color: var(--ink);
+}
+.zona-goal {
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+.zona-hero {
+  margin-bottom: 26px;
+}
+.zona-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--step-3);
+  letter-spacing: -0.02em;
+  margin: 8px 0 26px;
+  text-transform: none;
+}
+.zona-title .hl {
+  color: var(--steady);
+}
+
+/* medidor de zona */
+.zone-track {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  height: 66px;
+}
+.zone-seg {
+  position: relative;
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 8px;
+  transition: opacity 0.3s ease;
+}
+.zone-seg--active {
+  box-shadow: 0 0 0 2px var(--floor), 0 0 0 4px currentColor, 0 6px 20px -4px rgba(0, 0, 0, 0.6);
+  transform: scaleY(1.14);
+  transform-origin: bottom;
+}
+.zone-num {
+  font-size: 13px;
+  font-weight: 700;
+}
+.zone-dot {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.zone-legend {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 16px;
+}
+.zone-big {
+  font-size: var(--step-2);
+  font-weight: 700;
+  color: var(--ink);
+}
+.zone-name {
+  font-size: var(--step-0);
+  color: var(--ink-2);
+  font-weight: 500;
+}
+
+.zona-cta {
+  width: 100%;
+  margin: 4px 0 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  background: var(--effort);
+  color: #0d0f13;
+  border: none;
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  text-align: left;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+.zona-cta:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+.zona-cta-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--step-2);
+  letter-spacing: -0.01em;
+}
+
+.zona-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.zona-stat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.zona-big {
+  font-size: var(--step-2);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+.zona-big small {
+  font-size: 0.42em;
+  color: var(--muted);
+  margin-left: 1px;
+}
+.zona-read {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--steady);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  font-size: var(--step-0);
+  color: var(--ink-2);
+  line-height: 1.5;
+  margin: 0;
+}
+.zona-read strong {
+  color: var(--ink);
+}
+
+/* ================= TabBar (compartida) ================= */
+.tabbar {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--shell-max);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  padding: 10px 14px calc(12px + env(safe-area-inset-bottom));
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  backdrop-filter: saturate(1.4) blur(14px);
+  border-top: 1px solid var(--line);
+}
+.tab {
+  background: none;
+  border: none;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 0;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 10px;
+}
+.tab svg {
+  width: 22px;
+  height: 22px;
+}
+.tab--active {
+  color: var(--brand);
+}
+.tab--center svg {
+  color: #fff;
+  background: var(--brand);
+  border-radius: 10px;
+  padding: 4px;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+}
+
+/* ---------- Desktop: encuadrar el shell como "device" ---------- */
+@media (min-width: 720px) {
+  .shell {
+    margin: 24px auto;
+    min-height: calc(100dvh - 48px);
+    border-radius: 28px;
+    box-shadow: 0 30px 80px -40px rgba(0, 0, 0, 0.5);
+  }
+  /* Ancla la barra al pie del marco (no al viewport) */
+  .tabbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+    max-width: 100%;
+    border-radius: 0 0 28px 28px;
+  }
+}
