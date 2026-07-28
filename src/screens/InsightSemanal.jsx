@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import TabBar from '../components/TabBar.jsx'
-import { getProfile, getWeek } from '../lib/dataClient.js'
+import { getProfile, getWeek, getAllLogs, isPremium } from '../lib/dataClient.js'
 import { generateInsight } from '../lib/insight.js'
-import { weekStartISO, shortDate, TODAY } from '../data/mock.js'
+import { weekStartISO, shortDate, TODAY, groupByWeek } from '../data/mock.js'
 
 // ============================================================
 // Insight semanal — pantalla-reporte. Toma los daily_logs de la
@@ -17,6 +17,14 @@ export default function InsightSemanal() {
   const week = getWeek()
   const insight = generateInsight(profile, week.logs)
   const s = insight.stats
+  const premium = isPremium()
+
+  // Comparativa entre las dos últimas semanas con datos
+  const weeks = groupByWeek(getAllLogs())
+  const [cur, prev] = weeks
+  const delta = cur && prev && cur.avgReadiness != null && prev.avgReadiness != null
+    ? cur.avgReadiness - prev.avgReadiness
+    : null
 
   return (
     <div className="shell shell--zona ins">
@@ -68,11 +76,47 @@ export default function InsightSemanal() {
         )}
       </section>
 
-      {/* Nota de origen + gancho premium */}
+      {/* Comparativa mes a mes — feature premium */}
+      {premium ? (
+        <section className="ins-compare" aria-label="Comparativa entre semanas">
+          <span className="eyebrow">Vs. semana anterior</span>
+          <div className="ins-compare-row">
+            <span className="data ins-compare-num">{cur?.avgReadiness ?? '—'}</span>
+            {delta != null && (
+              <span className={`ins-delta data${delta >= 0 ? ' up' : ' down'}`}>
+                {delta >= 0 ? '▲' : '▼'} {Math.abs(delta)}
+              </span>
+            )}
+            <span className="ins-compare-prev data">antes {prev?.avgReadiness ?? '—'}</span>
+          </div>
+        </section>
+      ) : (
+        <button
+          type="button"
+          className="ins-locked"
+          onClick={() => navigate('/premium')}
+          aria-label="Desbloquear comparativa mes a mes con Premium"
+        >
+          <span className="ins-locked-blur data" aria-hidden="true">
+            72 ▲ 4 · antes 68
+          </span>
+          <span className="ins-locked-over">
+            <span className="ins-lock" aria-hidden="true">🔒</span>
+            <span>
+              <strong>Comparativa mes a mes</strong>
+              <span className="ins-locked-cta data">Desbloquear con Premium →</span>
+            </span>
+          </span>
+        </button>
+      )}
+
+      {/* Nota de origen */}
       <div className="ins-foot">
         <p className="ins-origin">
-          Análisis por reglas sobre tus registros. El reporte con IA (más profundo y comparativas mes a mes)
-          llega con <strong>Pulso Premium</strong>.
+          Análisis por reglas sobre tus registros.{' '}
+          {!premium && (
+            <>El reporte con IA, más profundo, llega con <strong>Pulso Premium</strong>.</>
+          )}
         </p>
       </div>
 

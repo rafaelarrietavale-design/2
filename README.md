@@ -74,7 +74,11 @@ Marca/PWA: ícono propio de Pulso (onda de pulso con la rampa de zonas) instalab
 - [x] 8. Perfil/Configuración
 - [x] 9. PWA — ícono, manifest instalable, service worker + offline. Pendiente: self-host de
        fuentes (hoy se cachean en runtime) e íconos de splash por dispositivo iOS
-- [ ] 10. Stripe (paywall premium)
+- [x] 10. Stripe — paywall Pulso Premium + gate de features (**checkout simulado**, sin cobrar ni
+       pedir tarjeta); `lib/billing.js` deja el punto de swap para la Checkout Session real de Stripe
+
+**MVP (Capa 1) completo.** Próximo paso para producción: conectar servicios reales (Supabase,
+edge function con Claude, Checkout de Stripe) llenando `.env.local` — la UI no cambia.
 
 Fuera de alcance del MVP (Capa 2/3): escaneo de comida por foto, rutina desde foto del
 gym, comparación fotográfica de progreso, componente social.

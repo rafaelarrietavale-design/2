@@ -10,7 +10,7 @@ const KEY = 'pulso-state-v2'
 const USE_REMOTE = !!import.meta.env.VITE_SUPABASE_URL
 
 function seed() {
-  return { profile: { ...seedProfile }, logs: seedLogs.map((l) => ({ ...l })) }
+  return { profile: { ...seedProfile }, logs: seedLogs.map((l) => ({ ...l })), subscription: null }
 }
 
 function load() {
@@ -81,6 +81,45 @@ export async function saveLog(date, data) {
   state = { ...state, logs }
   persist()
   return getLog(date)
+}
+
+// ---------- Suscripción (Stripe) ----------
+export function isPremium() {
+  return state.profile?.plan === 'premium'
+}
+
+export function getSubscription() {
+  return state.subscription
+}
+
+// Simulado: hoy activa el plan localmente. Con Stripe conectado, esto
+// lo hace el webhook (checkout.session.completed) contra la tabla
+// subscriptions; el cliente sólo abre el Checkout (ver lib/billing.js).
+export async function activatePremium() {
+  if (USE_REMOTE) throw new Error('Stripe no conectado')
+  const end = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString()
+  state = {
+    ...state,
+    profile: { ...state.profile, plan: 'premium' },
+    subscription: {
+      status: 'active',
+      current_period_end: end,
+      stripe_customer_id: 'demo',
+      stripe_subscription_id: 'demo',
+    },
+  }
+  persist()
+  return state.subscription
+}
+
+export async function cancelPremium() {
+  if (USE_REMOTE) throw new Error('Stripe no conectado')
+  state = {
+    ...state,
+    profile: { ...state.profile, plan: 'free' },
+    subscription: state.subscription ? { ...state.subscription, status: 'canceled' } : null,
+  }
+  persist()
 }
 
 // Sólo para la demo: volver al estado semilla.

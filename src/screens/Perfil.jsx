@@ -45,9 +45,11 @@ export default function Perfil() {
           <span className="plan-name">{isPremium ? 'Pulso Premium' : 'Pulso Free'}</span>
         </div>
         {isPremium ? (
-          <span className="plan-badge data">ACTIVO</span>
+          <button type="button" className="plan-badge-btn data" onClick={() => navigate('/premium')}>
+            GESTIONAR
+          </button>
         ) : (
-          <button type="button" className="plan-cta" onClick={() => update({ plan: 'premium' })}>
+          <button type="button" className="plan-cta" onClick={() => navigate('/premium')}>
             Probar Premium
           </button>
         )}
