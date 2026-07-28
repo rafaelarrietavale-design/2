@@ -48,13 +48,18 @@ Cuando se elija una dirección, se congela: se borra la otra Home y el switcher.
 
 ```
 src/
-  data/mock.js          # perfil + semana de daily_logs + helpers (readiness, zona)
-  lib/dataClient.js     # única puerta a datos: hoy mock, mañana Supabase
-  styles/               # tokens.css (design system) · components.css · switch.css
-  components/           # SignalTrace · ZoneMeter · StatTile · TabBar
-  screens/              # HomeInstrumento · HomeZona
+  data/mock.js          # daily_logs de varias semanas + helpers (fecha, readiness, zona, agrupación)
+  lib/dataClient.js     # única puerta a datos (lee/escribe): hoy mock+localStorage, mañana Supabase
+  lib/insight.js        # insight semanal por reglas + prompt de Claude para el wiring real
+  styles/               # tokens.css (design system) · components.css
+  components/           # ZoneMeter · Scale · Toggle · Stepper · Choice · StatTile · TabBar · Logo
+  screens/              # HomeZona · Onboarding · RegistroDiario · Historial · InsightSemanal · Perfil
   App.jsx main.jsx
+public/                 # ícono (svg + png), maskable, favicon, manifest.webmanifest
 ```
+
+Marca/PWA: ícono propio de Pulso (onda de pulso con la rampa de zonas) instalable desde Safari
+(*Añadir a inicio*). Service worker con precache + runtime caching de fuentes → funciona offline.
 
 ## Roadmap (orden de construcción)
 
@@ -63,10 +68,12 @@ src/
 - [x] 3. Onboarding (objetivo → nivel → días)
 - [x] 4. Registro diario (pantalla core)
 - [x] 5. Home/Dashboard (Zona/Heat)
-- [ ] 6. Historial (por semana)
-- [ ] 7. Integración Claude → insight semanal
-- [ ] 8. Perfil/Configuración
-- [ ] 9. PWA (manifest, ícono, service worker, self-host de fuentes)
+- [x] 6. Historial (por semana)
+- [x] 7. Insight semanal — **por reglas (simulado)**; falta cambiar `generateInsight()` por la
+       llamada real a Claude desde una edge function (prompt y payload ya listos en `lib/insight.js`)
+- [x] 8. Perfil/Configuración
+- [x] 9. PWA — ícono, manifest instalable, service worker + offline. Pendiente: self-host de
+       fuentes (hoy se cachean en runtime) e íconos de splash por dispositivo iOS
 - [ ] 10. Stripe (paywall premium)
 
 Fuera de alcance del MVP (Capa 2/3): escaneo de comida por foto, rutina desde foto del

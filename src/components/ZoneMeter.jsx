@@ -51,7 +51,7 @@ export default function ZoneMeter({ zone }) {
           </>
         ) : (
           <span className="zone-name" style={{ color: 'var(--muted)' }}>
-            Registrá hoy para ubicar tu zona
+            Registra hoy para ubicar tu zona
           </span>
         )}
       </div>

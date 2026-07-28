@@ -4,8 +4,8 @@
 const TABS = [
   { id: 'home', label: 'Hoy', to: '/', icon: 'M3 11.5 12 4l9 7.5M5 10v9h5v-6h4v6h5v-9' },
   { id: 'log', label: 'Registrar', to: '/registro', icon: 'M12 5v14M5 12h14', center: true },
-  { id: 'history', label: 'Historial', to: null, icon: 'M4 6h16M4 12h16M4 18h10' },
-  { id: 'profile', label: 'Perfil', to: null, icon: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 20c1.5-4 5-5 8-5s6.5 1 8 5' },
+  { id: 'history', label: 'Historial', to: '/historial', icon: 'M4 6h16M4 12h16M4 18h10' },
+  { id: 'profile', label: 'Perfil', to: '/perfil', icon: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 20c1.5-4 5-5 8-5s6.5 1 8 5' },
 ]
 
 export default function TabBar({ active = 'home', onNavigate }) {

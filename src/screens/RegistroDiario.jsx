@@ -82,8 +82,8 @@ export default function RegistroDiario() {
       {/* Energía */}
       <section className="reg-block">
         <span className="eyebrow" id="q-energy">Energía / ánimo</span>
-        <h2 className="reg-q">¿Cómo venís hoy?</h2>
-        <Scale id="q-energy" value={energy} onChange={setEnergy} lowLabel="En el piso" highLabel="A full" />
+        <h2 className="reg-q">¿Cómo te sientes hoy?</h2>
+        <Scale id="q-energy" value={energy} onChange={setEnergy} lowLabel="Por el piso" highLabel="Al máximo" />
       </section>
 
       <button type="button" className="zona-cta reg-save" disabled={!canSave} onClick={save}>

@@ -60,7 +60,7 @@ export default function HomeZona() {
       ) : (
         <button type="button" className="zona-cta" onClick={() => navigate('/registro')}>
           <span className="zona-cta-title">Registrar hoy</span>
-          <span className="eyebrow" style={{ color: '#0d0f13', opacity: 0.7 }}>Leé tu señal →</span>
+          <span className="eyebrow" style={{ color: '#0d0f13', opacity: 0.7 }}>Lee tu señal →</span>
         </button>
       )}
 
@@ -80,11 +80,15 @@ export default function HomeZona() {
         </div>
       </section>
 
-      {/* Lectura corta — el diferenciador: interpreta, no sólo registra */}
-      <p className="zona-read">
-        <span className="eyebrow" style={{ display: 'block', marginBottom: 6 }}>La señal</span>
+      {/* Lectura corta — el diferenciador: interpreta, no sólo registra.
+          Lleva al reporte completo de la semana. */}
+      <button type="button" className="zona-read" onClick={() => navigate('/insight')}>
+        <span className="zona-read-head">
+          <span className="eyebrow">La señal</span>
+          <span className="zona-read-more data">Ver reporte →</span>
+        </span>
         Tus mejores entrenos caen tras dormir <strong>+7 h</strong>. El jueves fuiste al 9 con 6.5 h — y la energía lo pagó.
-      </p>
+      </button>
 
       <TabBar active="home" onNavigate={navigate} />
     </div>

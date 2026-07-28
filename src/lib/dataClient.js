@@ -4,13 +4,13 @@
 // MAÑANA: implementá estos mismos métodos contra Supabase
 // (ver .env.example) sin tocar la UI.
 // ============================================================
-import { seedProfile, seedWeek, TODAY } from '../data/mock.js'
+import { seedProfile, seedLogs, TODAY, weekStartISO } from '../data/mock.js'
 
-const KEY = 'pulso-state-v1'
+const KEY = 'pulso-state-v2'
 const USE_REMOTE = !!import.meta.env.VITE_SUPABASE_URL
 
 function seed() {
-  return { profile: { ...seedProfile }, logs: seedWeek.map((l) => ({ ...l })) }
+  return { profile: { ...seedProfile }, logs: seedLogs.map((l) => ({ ...l })) }
 }
 
 function load() {
@@ -50,11 +50,22 @@ export async function saveProfile(patch) {
 }
 
 // ---------- Registros diarios ----------
+const currentWeekStart = weekStartISO(TODAY)
+
+// La semana actual (la que contiene TODAY), ordenada lunes -> domingo.
 export function getWeek() {
   const logs = state.logs
+    .filter((l) => weekStartISO(l.log_date) === currentWeekStart)
+    .sort((a, b) => (a.log_date < b.log_date ? -1 : 1))
   const today = logs.find((l) => l.log_date === TODAY) ?? null
-  const lastLogged = [...logs].reverse().find((l) => l.energy_level != null) ?? null
+  const lastLogged =
+    [...logs].reverse().find((l) => l.log_date <= TODAY && l.energy_level != null) ?? null
   return { logs, today, lastLogged }
+}
+
+// Todos los registros (para el historial)
+export function getAllLogs() {
+  return state.logs
 }
 
 export function getLog(date) {
@@ -63,13 +74,16 @@ export function getLog(date) {
 
 export async function saveLog(date, data) {
   if (USE_REMOTE) throw new Error('Supabase no conectado')
-  const logs = state.logs.map((l) => (l.log_date === date ? { ...l, ...data } : l))
+  const exists = state.logs.some((l) => l.log_date === date)
+  const logs = exists
+    ? state.logs.map((l) => (l.log_date === date ? { ...l, ...data } : l))
+    : [...state.logs, { log_date: date, training_notes: '', ...data }]
   state = { ...state, logs }
   persist()
   return getLog(date)
 }
 
-// Sólo para la demo: volver al estado semilla (usado por "Reiniciar demo").
+// Sólo para la demo: volver al estado semilla.
 export function resetDemo() {
   state = seed()
   persist()

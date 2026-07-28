@@ -20,12 +20,12 @@ const GOALS = [
 const LEVELS = [
   { value: 'principiante', label: 'Principiante', hint: 'Menos de 1 año entrenando' },
   { value: 'intermedio', label: 'Intermedio', hint: '1 a 3 años, técnica sólida' },
-  { value: 'avanzado', label: 'Avanzado', hint: 'Más de 3 años, entrenás en serie' },
+  { value: 'avanzado', label: 'Avanzado', hint: 'Más de 3 años, entrenas en serio' },
 ]
 
 const STEPS = [
-  { key: 'goal', eyebrow: 'Paso 1 de 3', title: '¿Qué buscás?', help: 'Ajustamos la lectura a tu objetivo.' },
-  { key: 'level', eyebrow: 'Paso 2 de 3', title: '¿Cuánto entrenás hace?', help: 'Nos dice cuánto exigirte.' },
+  { key: 'goal', eyebrow: 'Paso 1 de 3', title: '¿Qué buscas?', help: 'Ajustamos la lectura a tu objetivo.' },
+  { key: 'level', eyebrow: 'Paso 2 de 3', title: '¿Hace cuánto entrenas?', help: 'Nos dice cuánto exigirte.' },
   { key: 'days', eyebrow: 'Paso 3 de 3', title: '¿Cuántos días por semana?', help: 'Tu ritmo base de entrenamiento.' },
 ]
 
