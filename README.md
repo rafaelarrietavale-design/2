@@ -59,10 +59,10 @@ src/
 ## Roadmap (orden de construcción)
 
 - [x] 1. Setup (React + Vite + Tailwind) + capa de datos mock
-- [x] 2. Token system de diseño (2 direcciones a elegir)
-- [ ] 3. Onboarding (objetivo → nivel → días)
-- [ ] 4. Registro diario (pantalla core)
-- [ ] 5. Home/Dashboard (dirección elegida, final)
+- [x] 2. Token system de diseño (dirección **Zona/Heat** congelada)
+- [x] 3. Onboarding (objetivo → nivel → días)
+- [x] 4. Registro diario (pantalla core)
+- [x] 5. Home/Dashboard (Zona/Heat)
 - [ ] 6. Historial (por semana)
 - [ ] 7. Integración Claude → insight semanal
 - [ ] 8. Perfil/Configuración
