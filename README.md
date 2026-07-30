@@ -1,84 +1,59 @@
-# Pulso
+# Tatu Travel — sitio web
 
-Asistente fitness inteligente (PWA). No es un tracker más: **conecta** tus datos
-—entrenamiento, sueño, energía— y te devuelve *por qué* rendís como rendís. El
-diferenciador es la interpretación, no el registro.
+Sitio de **Tatu Travel**, agencia de viajes boutique especializada en Brasil
+(Rio de Janeiro · Pipa · Florianópolis · Lençóis Maranhenses).
 
-> Estado: **MVP · Capa 1**. Este push cubre **fundación + design system + Home de muestra**.
-> Corre 100% con datos mock (sin credenciales). Ver el resto del roadmap abajo.
-
-## Stack
-
-- **Frontend**: React + Vite + Tailwind CSS v4
-- **Backend/DB** (pendiente de conectar): Supabase (Postgres + Auth)
-- **IA** (pendiente): API de Anthropic (Claude) para el insight semanal
-- **Pagos** (pendiente): Stripe
-- **Hosting**: Vercel · **PWA**: manifest + service worker (pendiente)
-
-## Correr en local
-
-```bash
-npm install
-npm run dev      # http://localhost:5173
-npm run build    # build de producción
-```
-
-No hacen falta credenciales: mientras `.env.local` no tenga `VITE_SUPABASE_URL`,
-la app usa la capa mock (`src/data/mock.js`). Para conectar servicios reales, copiá
-`.env.example` a `.env.local` y completá las claves.
-
-## Dos direcciones de diseño (para elegir)
-
-Esta entrega incluye **dos direcciones visuales completas** de la Home, alternables con
-el switcher superior ("Vista de diseño"). Ambas nacen del mundo fitness real y evitan los
-clichés de IA (crema+terracota, negro+verde ácido, estilo periódico).
-
-- **Instrumento** — la app como una lectura de instrumento; calma e inteligente.
-  Firma: *el trazo*, una sola curva que teje sueño+energía+entreno de la semana. Light-first.
-- **Zona / Heat** — adrenalina y foco; superficie oscura de "training floor".
-  Firma: *medidor de zona del día* (rampa de zonas fría→caliente). Dark-first.
-
-Tipografía compartida: **Archivo Expanded** (display) · **Inter** (texto) ·
-**JetBrains Mono / Space Mono** (datos, como lectura de instrumento).
-Tokens en `src/styles/tokens.css` (`:root[data-dir="instrumento"|"zona"]`).
-
-Cuando se elija una dirección, se congela: se borra la otra Home y el switcher.
+Es un **sitio estático premium**: HTML + CSS + JavaScript vanilla, **sin build,
+sin npm, sin frameworks**. Se puede subir tal cual a Hostinger, Netlify, Vercel,
+GitHub Pages o cualquier hosting estático (arrastrar la carpeta y listo).
 
 ## Estructura
 
 ```
-src/
-  data/mock.js          # daily_logs de varias semanas + helpers (fecha, readiness, zona, agrupación)
-  lib/dataClient.js     # única puerta a datos (lee/escribe): hoy mock+localStorage, mañana Supabase
-  lib/insight.js        # insight semanal por reglas + prompt de Claude para el wiring real
-  styles/               # tokens.css (design system) · components.css
-  components/           # ZoneMeter · Scale · Toggle · Stepper · Choice · StatTile · TabBar · Logo
-  screens/              # HomeZona · Onboarding · RegistroDiario · Historial · InsightSemanal · Perfil
-  App.jsx main.jsx
-public/                 # ícono (svg + png), maskable, favicon, manifest.webmanifest
+index.html          # una sola página (long-scroll) con todas las secciones
+styles.css          # sistema de diseño + todas las secciones (paleta bandera de Brasil)
+main.js             # comportamiento (splash, reveals, nav, marquee, opiniones, formulario, WhatsApp)
+favicon.svg         # ícono: tatú carreta
+.htaccess           # cache + MIME + gzip para Hostinger/Apache
+lib/
+  gsap.min.js       # animaciones (opcional; el sitio funciona sin ellas)
+  ScrollTrigger.min.js
+  manifest.js       # window.__BRAND__: contacto y destinos (editar acá el WhatsApp/email)
+assets/img/         # acá van las fotos (hero, sobre-nosotros, cada destino, experiencias)
+tools/              # scripts dev-only (conversión a WebP, verificación). No se despliegan.
 ```
 
-Marca/PWA: ícono propio de Pulso (onda de pulso con la rampa de zonas) instalable desde Safari
-(*Añadir a inicio*). Service worker con precache + runtime caching de fuentes → funciona offline.
+## Cómo editar el contacto
 
-## Roadmap (orden de construcción)
+Abrí `lib/manifest.js` y completá tus datos reales en `contact`:
 
-- [x] 1. Setup (React + Vite + Tailwind) + capa de datos mock
-- [x] 2. Token system de diseño (dirección **Zona/Heat** congelada)
-- [x] 3. Onboarding (objetivo → nivel → días)
-- [x] 4. Registro diario (pantalla core)
-- [x] 5. Home/Dashboard (Zona/Heat)
-- [x] 6. Historial (por semana)
-- [x] 7. Insight semanal — **por reglas (simulado)**; falta cambiar `generateInsight()` por la
-       llamada real a Claude desde una edge function (prompt y payload ya listos en `lib/insight.js`)
-- [x] 8. Perfil/Configuración
-- [x] 9. PWA — ícono, manifest instalable, service worker + offline. Pendiente: self-host de
-       fuentes (hoy se cachean en runtime) e íconos de splash por dispositivo iOS
-- [x] 10. Stripe — paywall Pulso Premium + gate de features (**checkout simulado**, sin cobrar ni
-       pedir tarjeta); `lib/billing.js` deja el punto de swap para la Checkout Session real de Stripe
+```js
+whatsapp: "5491123456789",         // solo dígitos, formato internacional
+whatsappDisplay: "+54 9 11 2345-6789",
+email: "hola@tatutravel.com",
+instagram: "tatu.travel",
+```
 
-**MVP (Capa 1) completo.** Próximo paso para producción: conectar servicios reales (Supabase,
-edge function con Claude, Checkout de Stripe) llenando `.env.local` — la UI no cambia.
+Se propagan automáticamente al botón flotante, a los CTA de cada destino, al
+formulario y al footer.
 
-Fuera de alcance del MVP (Capa 2/3): escaneo de comida por foto, rutina desde foto del
-gym, comparación fotográfica de progreso, componente social.
+## Fotos
+
+El sitio arranca con **placeholders con marca**. Para poner fotos reales,
+dejá los archivos en `assets/img/` y reemplazá el `<div class="ph …">`
+correspondiente por `<img src="assets/img/archivo.webp" alt="…">`. Cada bloque
+tiene un `data-slot` (`hero`, `about`, `rio-1`, `pipa-1`, `maranhao-1`, `exp-1`…)
+para ubicarlo fácil.
+
+Para convertir fotos a WebP: `python tools/webp_convert.py --src <carpeta> --dst assets/img`.
+
+## Ver el sitio en local
+
+```bash
+python3 -m http.server 8765
+# abrir http://localhost:8765
+```
+
+## Paleta (bandera de Brasil)
+
+`#009C3B` verde · `#FFDF00` amarillo · `#002776` azul · blanco/arena.

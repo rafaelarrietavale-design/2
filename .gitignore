@@ -1,6 +1,14 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Dependencias de herramientas (dev-only, no se despliegan)
 node_modules
-dist
+
+# Originales de fotos (pesados) — se convierten a assets/img/
+assets/photos/source/
+
+# Entorno
 .env
 .env.local
 *.local
-.DS_Store

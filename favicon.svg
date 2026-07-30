@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Tatu Travel">
+  <rect width="64" height="64" rx="15" fill="#009C3B"/>
+  <!-- cola -->
+  <path d="M13 41 C7 40 3 45 5 51 C7 51 9 49 9 47 C10 44 13 43 15 44 Z" fill="#FFF7E0"/>
+  <!-- caparazón -->
+  <path d="M13 45 C11 27 24 15 33 15 C46 15 54 27 51 46 L15 46 Z" fill="#FFF7E0"/>
+  <!-- costillas -->
+  <path d="M24 45 C23 32 26 22 33 16" fill="none" stroke="#009C3B" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M40 45 C40 33 44 24 49 21" fill="none" stroke="#009C3B" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- banda amarilla -->
+  <path d="M31 45 C29 31 33 21 41 16" fill="none" stroke="#FFDF00" stroke-width="4.4" stroke-linecap="round"/>
+  <!-- cabeza y hocico -->
+  <path d="M47 30 C54 29 60 34 61 42 C59 44 56 43 53 41 C49 39 47 35 47 30 Z" fill="#FFF7E0"/>
+  <!-- ojo -->
+  <circle cx="53" cy="33" r="2.1" fill="#002776"/>
+  <!-- patas -->
+  <path d="M22 45 l-1 9 c0 2 4 2 4 0 l0 -9 Z" fill="#FFF7E0"/>
+  <path d="M44 44 l-1 10 c0 2 4 2 4 0 l0 -10 Z" fill="#FFF7E0"/>
+</svg>
